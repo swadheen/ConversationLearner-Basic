@@ -1,16 +1,20 @@
 {
-    "name": "basic_conversation_learner_bot",
-    "version": "1.0.0",
-    "description": "Basic Conversation Learner Bot",
-    "main": "app.js",
-    "author": "Swads",
-    "license": "MIT",
-    "dependencies": {
-      "botbuilder": "4.2.0",
-      "@conversationlearner/sdk": "0.310.0",
-      "convict": "*",
-      "dotenv": "*",
-      "express": "*",
-      "offline-directline": "*"
-    }
+  "name": "basic_conversation_learner_bot",
+  "version": "1.0.0",
+  "description": "Basic Conversation Learner Bot",
+  "main": "app.js",
+  "author": "Swads",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder": "4.2.0",
+    "@conversationlearner/sdk": "0.310.0",
+    "convict": "*",
+    "dotenv": "*",
+    "express": "*",
+    "offline-directline": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/swadheen/ConversationLearner-Basic.git"
   }
+}
