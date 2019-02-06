@@ -1,7 +1,7 @@
 const { BotStateSet, BotFrameworkAdapter, MemoryStorage, ConversationState, UserState, AutoSaveStateMiddleware, MessageFactory, CardFactory } = require('botbuilder');
 const express = require('express');
 const path = require("path");
-const { ConversationLearner, ClientMemoryManager, ReadOnlyClientMemoryManager, FileStorage } = require('@conversationlearner/sdk');
+const { ConversationLearner, ClientMemoryManager, ReadOnlyClientMemoryManager, FileStorage, uiRouter } = require('@conversationlearner/sdk');
 const config_1 = require("./config");
 const dol_1 = require("./dol");
 
@@ -54,7 +54,7 @@ server.post('/api/messages', (req, res) => {
         console.log(context.activity.type);
         const result = yield cl.recognize(context);
         if (result) {
-            cl.SendResult(result);
+            yield cl.SendResult(result);
         }
     }));
 });
@@ -62,7 +62,7 @@ server.post('/api/messages', (req, res) => {
 if (process.env.NODE_ENV === 'development') {
     server.use('/sdk', sdkRouter);
     server.use(dol_1.default(botPort));
-    server.use('/', express.static(__dirname + '/node_modules/@conversationlearner/ui')).use((req, res) => res.sendFile(__dirname + '/node_modules/@conversationlearner/ui/index.html'));
+    server.use(uiRouter);
 }
 
 server.listen(botPort, () => {

@@ -6,8 +6,8 @@
   "author": "Swads",
   "license": "MIT",
   "dependencies": {
-    "botbuilder": "4.2.0",
-    "@conversationlearner/sdk": "0.310.0",
+    "botbuilder": "4.1.7",
+    "@conversationlearner/sdk": "0.315.2",
     "convict": "*",
     "dotenv": "*",
     "express": "*",
