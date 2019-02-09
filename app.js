@@ -29,19 +29,39 @@ const sdkRouter = ConversationLearner.Init(config_1.default, fileStorage);
 const cl = new ConversationLearner(modelId);
 
 //Entity Detection
-cl.EntityDetectionCallback((text, memoryManager) => __awaiter(this, void 0, void 0, function* () {
+cl.EntityDetectionCallback((text, memoryManager) => __awaiter(this, void 0, void 0, function*() {
 
 }));
 
 //Language Generation
 cl.AddCallback({
-    name: "DoNothing", logic: (memoryManager) => {
+    name: "DoNothing",
+    logic: (memoryManager) => {
         //API Logic
         // Do Nothing
 
-    }, render: (result, memoryManager) => {
+    },
+    render: (result, memoryManager) => {
 
     }
+});
+
+cl.AddCallback({
+    name: "DeleteEntity",
+    logic: (memoryManager, entityName) => __awaiter(this, void 0, void 0, function*() {
+        if (entityName == "") {
+            memoryManager.DeleteAll();
+        } else
+            memoryManager.Delete(entityName);
+    })
+});
+
+cl.AddCallback({
+    name: "SetEntity",
+    logic: (memoryManager, entityName, entityValue) => __awaiter(this, void 0, void 0, function*() {
+        if (entityName == "") {} else
+            memoryManager.Set(entityName, entityValue);
+    })
 });
 
 
@@ -50,7 +70,7 @@ cl.AddCallback({
 // Handle Incoming Messages
 //=================================
 server.post('/api/messages', (req, res) => {
-    adapter.processActivity(req, res, (context) => __awaiter(this, void 0, void 0, function* () {
+    adapter.processActivity(req, res, (context) => __awaiter(this, void 0, void 0, function*() {
         console.log(context.activity.type);
         const result = yield cl.recognize(context);
         if (result) {
