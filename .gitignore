@@ -62,3 +62,4 @@ typings/
 
 #  Conversation Learner Storage
 storage/
+package-lock.json
