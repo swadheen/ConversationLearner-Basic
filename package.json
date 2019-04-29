@@ -6,11 +6,12 @@
     "author": "Swads",
     "license": "MIT",
     "dependencies": {
-        "@conversationlearner/sdk": "0.315.2",
+        "@conversationlearner/sdk": "0.318.11",
         "convict": "*",
         "dotenv": "*",
         "express": "*",
-        "offline-directline": "*"
+        "offline-directline": "*",
+        "botframework-connector": "4.1.7"
     },
     "repository": {
         "type": "git",
