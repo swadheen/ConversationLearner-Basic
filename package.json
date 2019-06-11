@@ -6,7 +6,7 @@
     "author": "Swads",
     "license": "MIT",
     "dependencies": {
-        "@conversationlearner/sdk": "0.318.12",
+        "@conversationlearner/sdk": "0.319.8",
         "convict": "*",
         "dotenv": "*",
         "express": "*",
